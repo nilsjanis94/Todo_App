@@ -1,0 +1,33 @@
+{% extends 'meineapp/base.html' %}
+
+{% block content %}
+<div class="task-detail">
+    <h2>{{ task.title }}</h2>
+    <div class="task-info">
+        <p class="task-date"><strong>Erstellt am:</strong> {{ task.created_at|date:"d.m.Y H:i" }}</p>
+        <p class="task-status">
+            <strong>Status:</strong> 
+            <span class="status-badge {% if task.completed %}completed{% else %}pending{% endif %}">
+                {% if task.completed %}Erledigt{% else %}Offen{% endif %}
+            </span>
+        </p>
+    </div>
+    
+    <div class="task-content">
+        <h3>Beschreibung:</h3>
+        <p>{{ task.description }}</p>
+    </div>
+    
+    <div class="task-actions">
+        <a href="{% url 'task_list' %}" class="btn btn-back">Zurück zur Liste</a>
+        <a href="{% url 'task_update' task.id %}" class="btn btn-edit">Bearbeiten</a>
+        <a href="{% url 'task_delete' task.id %}" class="btn btn-delete">Löschen</a>
+        <form action="{% url 'task_toggle' task.id %}" method="post" class="toggle-form">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-toggle">
+                {% if task.completed %}Als unerledig markieren{% else %}Als erledigt markieren{% endif %}
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %} 

@@ -1,0 +1,23 @@
+{% extends 'meineapp/base.html' %}
+
+{% block content %}
+<div class="delete-confirmation">
+    <h2>Aufgabe löschen</h2>
+    
+    <p class="warning">Bist du sicher, dass du die folgende Aufgabe löschen möchtest?</p>
+    
+    <div class="task-preview">
+        <h3>{{ object.title }}</h3>
+        <p class="task-description">{{ object.description|truncatechars:100 }}</p>
+        <p class="task-date">Erstellt am: {{ object.created_at|date:"d.m.Y" }}</p>
+    </div>
+    
+    <form method="post" class="delete-form">
+        {% csrf_token %}
+        <div class="form-actions">
+            <a href="{% url 'task_detail' object.id %}" class="btn btn-cancel">Abbrechen</a>
+            <button type="submit" class="btn btn-delete">Ja, löschen</button>
+        </div>
+    </form>
+</div>
+{% endblock %} 
