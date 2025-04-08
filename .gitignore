@@ -1,45 +1,59 @@
-# Abhängigkeiten
-/node_modules
-/.pnp
-.pnp.js
-.yarn/install-state.gz
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
 
-# Testabdeckung
-/coverage
+# Django
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media
 
-# next.js
-/.next/
-/out/
+# Virtuelle Umgebung
+venv/
+ENV/
+env/
 
-# Produktions-Build
-/build
-/dist
-
-# Verschiedenes
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
 .DS_Store
-*.pem
 
-# Debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Lokale Umgebungsdateien
-.env*.local
+# Umgebungsvariablen
 .env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# Vercel
-.vercel
+# Statische Dateien und Medien (bei Bedarf)
+# /static/
+# /media/
 
-# TypeScript
-*.tsbuildinfo
-next-env.d.ts
+# Pytest
+.pytest_cache/
+.coverage
+htmlcov/
 
-# Editor Verzeichnisse und Dateien
-.idea
-.vscode
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+# Jupyter Notebook
+.ipynb_checkpoints
